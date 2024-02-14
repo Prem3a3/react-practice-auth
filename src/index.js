@@ -16,12 +16,4 @@ let root = ReactDOM.createRoot(document.getElementById('root'));
 //   </header>)
 
 // }
-// export class Menu extends React.Component{
-//   render() {
-//     // let menuArray = ['Home', 'About Us'];
-//     return (
-// <h1>chandu</h1>
-//     )
-//   }
-// }
 root.render(<App/>);
