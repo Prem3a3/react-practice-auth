@@ -6,7 +6,7 @@ export function App() {
   return (
     <div>
       <Header/>
-      <p>chsni an pem kumar </p>
+      <p>chsni and chaitany</p>
     </div>
   )
 }
