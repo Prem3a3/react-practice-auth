@@ -10,12 +10,28 @@ let s1 = {
   border: "100px"
 }
 
+const userDetails = [
+  {
+    id: 20,
+    name: 'Abhraham',
+    place: 'Ohio'
+  },
+  {
+    id: 21,
+    name: 'Revanth',
+    place: 'miami'
+  },
+  {
+    id: 22,
+    name: 'Kranthi',
+    place: 'miami'
+  }
+]
+
 export function App() {
   return (
-    <div> 
-      <User name = 'Chandu' age = '20'/>
-      <User name = 'Prem' age = '20'/>
-
-    </div>
+     userDetails.map((singleUser) => {
+      return <User id = {singleUser.id} name = {singleUser.name}  place = {singleUser.place}/>
+    })
   )
 }
