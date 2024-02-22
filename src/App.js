@@ -10,6 +10,10 @@ let s1 = {
   border: "100px"
 }
 
+export function displayMessage(number){
+  alert( `{userDetails.filter((s) => number ===s.id)}`)
+}
+
 const userDetails = [
   {
     id: 20,
@@ -29,9 +33,19 @@ const userDetails = [
 ]
 
 export function App() {
+  
   return (
-     userDetails.map((singleUser) => {
-      return <User id = {singleUser.id} name = {singleUser.name}  place = {singleUser.place}/>
-    })
+    <button onClick={displayMessage}>display</button>
+  )
+}
+
+function Fragments() {
+  return (
+    <>
+      <div>This is div1</div>
+      <div>This is div2</div>
+      <div>This is div2</div>
+
+    </>
   )
 }

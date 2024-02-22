@@ -1,4 +1,4 @@
-export function User(props) {
+ export let User = (props)  => {
     console.log(props);
     return (
         <>
