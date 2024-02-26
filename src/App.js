@@ -1,12 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
-import { Header } from './header';
 
 export function App() {
   return (
-    <div>
-      <Header/>
-      <p>chsni and chaitany</p>
+    <div className='Wrapper'>
+      <h1> Background color changer</h1>
+      <input type='color' onChange={(e) => {
+        document.body.style.background = e.target.value
+      }} />
+
     </div>
   )
 }
