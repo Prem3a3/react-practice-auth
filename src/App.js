@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Header } from './header';
 import { User } from './User';
+import { useState } from 'react';
 
 let s1 = {
   background: "white",
@@ -10,8 +11,8 @@ let s1 = {
   border: "100px"
 }
 
-export function displayMessage(number){
-  alert( `{userDetails.filter((s) => number ===s.id)}`)
+export function displayMessage(number) {
+  alert(`{userDetails.filter((s) => number ===s.id)}`)
 }
 
 const userDetails = [
@@ -33,9 +34,26 @@ const userDetails = [
 ]
 
 export function App() {
-  
+  let stock = 10;
+  let [counter, setCounter] = useState(0);
+
   return (
-    <button onClick={displayMessage}>display</button>
+    <div className='Wrapper'>
+      <button className='minus' disabled = {counter === 0} onClick={() => {
+        if (counter > 0) {
+          setCounter(counter-1);
+        }
+      }}>-</button>
+      <p>{counter}</p>
+      <button className='plus' onClick={() => {
+        if (counter < stock) {
+          setCounter(counter+1);
+          // console.log(counter);
+        }
+      }}>+</button>
+
+
+    </div>
   )
 }
 
