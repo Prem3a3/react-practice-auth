@@ -32,7 +32,47 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+#para {
+  color: red;
+  background-color: rgb(120, 196, 27);
+}
+
+.primary {
+  color: rgb(21, 0, 255);
+  border: 300px;
+}
+
+.Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.Wrapper button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  font-size: 22px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+button :disabled {
+  opacity: 0.6;
+}
+
+button.minus {
+  background-color: red;
+}
+
+button.plus {
+  background-color: blue;
 }
