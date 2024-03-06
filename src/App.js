@@ -1,51 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
-import { Header } from './header';
-import { User } from './User';
-
-let s1 = {
-  background: "white",
-  color: "black",
-  marginTop: "200px",
-  border: "100px"
-}
-
-export function displayMessage(number){
-  alert( `{userDetails.filter((s) => number ===s.id)}`)
-}
-
-const userDetails = [
-  {
-    id: 20,
-    name: 'Abhraham',
-    place: 'Ohio'
-  },
-  {
-    id: 21,
-    name: 'Revanth',
-    place: 'miami'
-  },
-  {
-    id: 22,
-    name: 'Kranthi',
-    place: 'miami'
-  }
-]
+import { useState } from "react"
 
 export function App() {
-  
-  return (
-    <button onClick={displayMessage}>display</button>
-  )
-}
 
-function Fragments() {
-  return (
-    <>
-      <div>This is div1</div>
-      <div>This is div2</div>
-      <div>This is div2</div>
+  let [todoValue, updateNewTodo] = useState('test');
 
-    </>
+
+  let [todo, updateTodo] = useState([{
+    id: 1,
+    task: "learn react"
+  },
+  {
+    id: 2,
+    task: "learn angular"
+  },])
+
+  let nextId = 3;
+
+  function addNewTodo() {
+    if (todoValue === '') {
+      alert("add some task");
+    }
+    else {
+      let newTodos = [...todo, {
+        id: nextId++,
+        task: todoValue,
+      }]
+      updateTodo(newTodos);
+      updateNewTodo('');
+    }
+
+  }
+  function deleteTodo(delteId){
+    let newArrayTodo = todo.filter((s1) => {
+      return (s1.id != delteId)
+    })
+    updateTodo(newArrayTodo);
+  }
+
+  return (
+    <div className="container">
+      <div>
+        <input className='form-control' type='text' onChange={(e) => {
+          let task = e.target.value;
+          updateNewTodo(task);
+        }} />
+        <button className="btn btn-primary" type="text" onClick={() => {
+          addNewTodo()
+        }} value={todoValue}>Add</button>
+      </div>
+      <ul className="list-group">
+        {
+          todo.map((todo) => {
+            return (
+              <li className="list-group-item">
+                <button>✔</button>
+                <p1>{todo.task}</p1>
+                <button onClick={(todo) => {
+                  deleteTodo(todo.id)
+                }}>✖</button>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
   )
 }
